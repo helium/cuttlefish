@@ -1,0 +1,9 @@
+case os:getenv("NO_ESCRIPT") of
+    "1" ->
+        %% remove escriptizing from CONFIG
+        lists:keydelete(escript_emu_args, 1, CONFIG),
+        lists:keydelete(escript_incl_apps, 1, CONFIG),
+        lists:keydelete(escript_main_app, 1, CONFIG),
+        lists:keydelete(provider_hooks, 1, CONFIG);
+    _ -> CONFIG
+end.
